@@ -38,8 +38,6 @@ function App() {
   console.log(transformedBrands)
   
 
-  const [upVotes, setUpVotes] = useState(0)
-  const [downVotes, setDownVotes] = useState(0)
 
   const [carBrands, setCarBrands] = useState(
     brands.map(brand => ({
