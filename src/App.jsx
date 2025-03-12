@@ -86,18 +86,18 @@ function App() {
       </header>
 
       <main className="bg-slate-50 flex-1 pt-8 rounded-md">
-        <section className="text-lg text-center flex flex-wrap gap-8 justify-center">
+{/*<section className="text-lg text-center flex flex-wrap gap-8 justify-center">
           {carBrands.map((brand, index) => (
             <BrandCard index={index} key={brand.name} name={brand.name} image={brand.image} voteUp = {handleUpVotes} voteDown = {handleDownVotes} upVotes={brand.upVotes} downVotes={brand.downVotes} />
           ))}
-        </section>       
+        </section>*/}       
         {/* <LearnComponent/> */}
         {/*<QuizComponent/>*/}
         {/*  <LearnUseState name={"Kenneth"} age={19}/> */}
-        <div>
+{/*<div>
           <button onClick={handleReset} className="bg-slate-200 text-slate-800 rounded-md">Reset votes</button>
-        </div>
-        <LearnUseEffect/>
+        </div> */
+}        <LearnUseEffect/>
       </main>
       <footer className="py-5 bg-slate-100 rounded-md">
         <p className="text-sm text-center">Copyright &copy; 2023</p>

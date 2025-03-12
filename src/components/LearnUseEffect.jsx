@@ -1,33 +1,28 @@
 import {useEffect, useState} from "react"
+import ProductCard from "./ProductCard.jsx"
 //useEffect is used to handle side effects on the page
 
 function LearnUseEffect() {
-  const [counter, setCounter] = useState(0)  
+  const [counter, setCounter]= useState(0)
+  const [products, setProducts] = useState([])
 
+  const fetchProducts = async() => {
+    const res = await fetch("https://fakestoreapi.com/products")
+    const products = await res.json()
+    console.log(products)
+    setProducts(products)
+  }
+  
   useEffect(() => {
-    console.log("Welcome to this page")
+    fetchProducts()
   }, [])
- 
-  useEffect(() => {
-    const fetchData = async() => {
-       const res = await fetch('https://fakestoreapi.com/products')
-       const data = await res.json()
-       console.log(data)
-    }
-    fetchData() 
-  }, [counter])
 
-  //json eg {
-//  "name" : "David",
-//  "age":"12"
-//}
-   
+
   return(
-    <div>
-      Learning How useEffect Hook Works
-      <div>{counter}</div>
-      <button className="bg-slate-500 px-3 py-1 rounded-md" onClick={() => setCounter(counter + 1)}>+</button>
-      <button className="bg-slate-500 px-3 py-1 rounded-md" onClick={() => setCounter(counter- 1)}>-</button>
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   )
 }
